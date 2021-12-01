@@ -1,4 +1,5 @@
 # advent_of_code
-Storing my codes for advent of code 2021.
+Advent of code codes.
 
-This will store all of my advent of code outputs. It may stop at 2021, I may keep it going for longer. Who knows! 
+
+![istockphoto-1187452672-612x612](https://user-images.githubusercontent.com/57986414/144224389-a74d7abd-a46b-4ccd-ba55-2c51c8d3d6b0.jpeg)
