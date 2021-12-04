@@ -4,4 +4,6 @@
 #include <string>
 #include <vector>
 
-void ReadFile(std::string path, std::vector<int>* input);
+std::vector<std::string> ReadFileLines(std::string path);
+
+std::vector<int> VecStringToInt(const std::vector<std::string>& string_vec);

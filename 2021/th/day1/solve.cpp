@@ -7,13 +7,11 @@
 // TODO(TH): comment more to help people learn syntax
 
 int main() {
-    std::vector<int> input;
-
-    ReadFile("input.txt", &input);
+    std::vector<int> input = VecStringToInt(ReadFileLines("input.txt"));
 
     int result = 0;
     int prev = input[0];
-    for (const auto line : input) {
+    for (const auto& line : input) {
         if (line > prev) {
             result++;
         }
