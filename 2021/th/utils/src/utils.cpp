@@ -1,12 +1,14 @@
 // TH 2021
 #include <fstream>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
 #include "utils.h"
 
 
-std::vector<std::string> ReadFileLines(std::string path) {
+std::vector<std::string> readFileLines(std::string path) {
     std::vector<std::string> input;
     std::string line;
     std::ifstream infile(path);
@@ -19,7 +21,7 @@ std::vector<std::string> ReadFileLines(std::string path) {
 }
 
 // Vectors can be large so we pass by reference
-std::vector<int> VecStringToInt(const std::vector<std::string>& string_vec) {
+std::vector<int> vecStringToInt(const std::vector<std::string>& string_vec) {
     std::vector<int> int_vec;
 
     for (const auto& s : string_vec) {
@@ -27,4 +29,34 @@ std::vector<int> VecStringToInt(const std::vector<std::string>& string_vec) {
     }
 
     return int_vec;
+}
+
+void extractIntsFromCommaString(const std::string& str, std::vector<int>* out) {
+    std::stringstream ss(str);
+
+    int i;
+
+    while (ss >> i) {
+        out->push_back(i);
+
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+}
+
+void extractIntsFromStrings(const std::string& str, std::vector<int>* out) {
+    std::stringstream ss;
+
+    ss << str;
+
+    std::string temp;
+    int found;
+    while (!ss.eof()) {
+        ss >> temp;
+
+        if (std::stringstream(temp) >> found)
+            std::cout << found << " ";
+
+        temp = "";
+    }
 }

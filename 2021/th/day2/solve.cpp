@@ -5,7 +5,7 @@
 #include "include/utils.h"
 
 int main() {
-    std::vector<std::string> input = ReadFileLines("input.txt");
+    std::vector<std::string> input = readFileLines("input.txt");
 
     std::vector<std::pair<std::string, int>> pairs;
 

@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> ReadFileLines(std::string path);
+std::vector<std::string> readFileLines(std::string path);
 
-std::vector<int> VecStringToInt(const std::vector<std::string>& string_vec);
+std::vector<int> vecStringToInt(const std::vector<std::string>& string_vec);
+
+void extractIntsFromString(const std::string& str, std::vector<int>* out);
+
+void extractIntsFromCommaString(const std::string& str, std::vector<int>* out);

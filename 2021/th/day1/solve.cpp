@@ -7,7 +7,7 @@
 // TODO(TH): comment more to help people learn syntax
 
 int main() {
-    std::vector<int> input = VecStringToInt(ReadFileLines("input.txt"));
+    std::vector<int> input = vecStringToInt(readFileLines("input.txt"));
 
     int result = 0;
     int prev = input[0];
