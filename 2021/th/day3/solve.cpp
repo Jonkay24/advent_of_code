@@ -1,6 +1,4 @@
 // TH 2021
-#include <cmath>
-#include <functional>
 #include <iostream>
 #include <list>
 #include <vector>
