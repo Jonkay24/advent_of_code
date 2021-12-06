@@ -31,6 +31,7 @@ std::vector<int> vecStringToInt(const std::vector<std::string>& string_vec) {
     return int_vec;
 }
 
+// TODO(TH): Make generic extractIntsFromString function where you pass in chars to ignore
 void extractIntsFromCommaString(const std::string& str, std::vector<int>* out) {
     std::stringstream ss(str);
 
@@ -39,7 +40,7 @@ void extractIntsFromCommaString(const std::string& str, std::vector<int>* out) {
     while (ss >> i) {
         out->push_back(i);
 
-        if (ss.peek() == ',')
+        while (ss.peek() == ',' || ss.peek() == ' ' || ss.peek() == '-' || ss.peek() == '>')
             ss.ignore();
     }
 }
