@@ -44,7 +44,7 @@ void extractIntsFromCommaString(const std::string& str, std::vector<int>* out) {
     }
 }
 
-void extractIntsFromStrings(const std::string& str, std::vector<int>* out) {
+void extractIntsFromString(const std::string& str, std::vector<int>* out) {
     std::stringstream ss;
 
     ss << str;
@@ -55,7 +55,7 @@ void extractIntsFromStrings(const std::string& str, std::vector<int>* out) {
         ss >> temp;
 
         if (std::stringstream(temp) >> found)
-            std::cout << found << " ";
+            out->push_back(found);
 
         temp = "";
     }

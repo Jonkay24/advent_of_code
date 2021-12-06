@@ -13,8 +13,7 @@ int main() {
     for (const auto& line : input) {
         pairs.push_back(std::make_pair(
             line.substr(0, line.find(" ")),
-            std::stoi(line.substr(line.find(" ")+1, line.length()))
-        ));
+            std::stoi(line.substr(line.find(" ")+1, line.length()))));
     }
 
     // Solve part 1
