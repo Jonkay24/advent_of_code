@@ -1,0 +1,59 @@
+with open("Diagnostics_Report.txt") as f:
+    diag_data = f.read().splitlines()
+
+# establish how long the list of values is; length of each string; and final str index position. For loop inputs.
+list_len = (len(diag_data))
+str_len = (len(diag_data[0]))
+str_index_end = str_len - 1
+
+# establish a variable container for the loop outputs.
+gamma_rate_bin1 = []
+
+# iterate through the list, to determine if the sum of each index position > (.5 * list length), i.e. more 1s than 0s.
+# add the correct binary output (1/0) into the gamma_rate_bin1 container for each index position.
+# reduce the index locator variable so the next loop restarts at the next position along the string.
+while str_index_end >= 0:
+    index_sum = 0
+    for x in diag_data:
+        if x[str_index_end] == "1":
+            index_sum += 1
+        else:
+            pass
+    if index_sum > (list_len / 2):
+        gamma_rate_bin1.append("1")
+    elif index_sum < (list_len / 2):
+        gamma_rate_bin1.append("0")
+    str_index_end -= 1
+
+# reverse the list, because we started at the end index position and worked backwards.
+gamma_rate_bin2 = ""
+gamma_rate_bin2 = gamma_rate_bin2.join(gamma_rate_bin1[::-1])
+epsilon_rate_bin = []
+
+# establish the value of the epsilon rate, which is the reverse binary of the gamma rate.
+for y in gamma_rate_bin2:
+    if y == "1":
+        epsilon_rate_bin.append("0")
+    elif y == "0":
+        epsilon_rate_bin.append("1")
+
+# convert the epsilon list into a string, to parse through the bin_2_num function.
+epsilon_rate_bin2 = ""
+epsilon_rate_bin2 = epsilon_rate_bin2.join(epsilon_rate_bin)
+
+
+# function to convert binary into base 10 number for power output calculation.
+def bin_2_num(binary):
+    number = int(binary, 2)
+    return number
+
+
+# run the function on the binary inputs, then use the numeric outputs to establish the power consumption value.
+gamma_rate_num = bin_2_num(gamma_rate_bin2)
+epsilon_rate_num = bin_2_num(epsilon_rate_bin2)
+power_consumption = gamma_rate_num * epsilon_rate_num
+
+print("Your diagnostic report is ready, Commander.")
+print("The Gamma Rate is: " + gamma_rate_bin2)
+print("The Epsilon Rate is: " + epsilon_rate_bin2)
+print("Current power consumption is: " + str(power_consumption))
